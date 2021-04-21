@@ -11,9 +11,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
-
         <p className={styles.description}>Open source music radio player</p>
-
+        Pull request test!
         {/*<div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
