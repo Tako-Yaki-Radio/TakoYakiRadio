@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  if (process.env.DATABASE_URL !== "__NONE")
+  if (process.env.IS_PREVIEW_SETUP !== "yes")
     return <meta http-equiv="refresh" content="0;url=/" />;
 
   return (
