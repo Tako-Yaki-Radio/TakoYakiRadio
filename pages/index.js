@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
   console.log("Preview mode: ", process.env.IS_PREVIEW_SETUP || "No");
+  console.log("Detecting mode");
 
   if (process.env.IS_PREVIEW_SETUP === "yes")
     <meta http-equiv="refresh" content="2;url=/preview-github" />;
