@@ -30,7 +30,6 @@ export default function Home() {
 
           <main className={styles.main}>
             <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
-            {/*<p className={styles.description}>Open source music radio player</p>*/}
             <div className={styles.grid}>
               {!session && (
                 <>
