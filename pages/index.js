@@ -1,61 +1,56 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
+import { useSession } from "next-auth/client";
+import Link from "next/link";
+
+if (!process.env.DATABASE_URL || !process.env.NEXTAUTH_URL) {
+  console.error(
+    "Hi! looks like you're trying to use this code without ENVs. If you want to use this, you will need this ENVs:\n  - A mongoDB database URL\n  - A next-auth URL\n"
+  );
+  process?.exit?.(1);
+}
+
 export default function Home() {
+  const [session] = useSession();
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>TakoYaki Radio</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div>
+        <div className={styles.container}>
+          <Head>
+            <title>TakoYaki Radio</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
-        <p className={styles.description}>Open source music radio player</p>
-        Pull request test! Now from issues and Projects!
-        {/*<div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <main className={styles.main}>
+            <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
+            {/*<p className={styles.description}>Open source music radio player</p>*/}
+            <div className={styles.grid}>
+              {!session && (
+                <>
+                  <Link href="/" className={styles.card}>
+                    <div className={styles.card}>
+                      <h3>Sign in &rarr;</h3>
+                    </div>
+                  </Link>
+                  <Link href="/" className={styles.card}>
+                    <div className={styles.card}>
+                      <h3>Sign up &rarr;</h3>
+                    </div>
+                  </Link>
+                </>
+              )}
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+              {session && (
+                <Link href="/" className={styles.card}>
+                  <h3>Sign out &rarr;</h3>
+                </Link>
+              )}
+            </div>
+          </main>
         </div>
-			*/}
-      </main>
-      {/*
-
-       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer> */}
-    </div>
+      </div>
+    </>
   );
 }

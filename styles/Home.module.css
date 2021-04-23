@@ -1,10 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+
 .container {
-  min-height: 100vh;
+  min-height: 100%;
+  min-width: 100%;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(36, 36, 36);
+  color: white;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.055em;
 }
 
 .main {
@@ -72,18 +79,21 @@
 }
 
 .grid {
+  margin-top: 9%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  max-width: 200%;
+  min-width: 60%;
 }
 
 .card {
-  margin: 1rem;
+  text-align: center;
+  margin: 0.6rem;
   flex-basis: 45%;
   padding: 1.5rem;
+  padding-bottom: 1.23%;
   text-align: left;
   color: inherit;
   text-decoration: none;
@@ -95,8 +105,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #00d181;
+  border-color: #00f396;
 }
 
 .card h3 {
@@ -118,5 +128,8 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .container {
+    letter-spacing: normal;
   }
 }
