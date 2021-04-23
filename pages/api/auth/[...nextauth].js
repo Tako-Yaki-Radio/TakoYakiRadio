@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 
 export default NextAuth({
-  providers: [],
+	providers: [],
 
-  database: process.env.DATABASE_URL,
+	database: process.env.DATABASE_URL,
 });
