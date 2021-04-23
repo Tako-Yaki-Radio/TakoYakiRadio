@@ -1,12 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import { useRouter } from "next/router";
-
 export default function Home() {
-  const router = useRouter();
-
-  if (process.env.DATABASE_URL === "__NONE")
+  if (process.env.DATABASE_URL === "__NONE") {
     return (
       <>
         <div>
@@ -23,6 +19,7 @@ export default function Home() {
         </div>
       </>
     );
-
-  router.push("/");
+  } else {
+    return <meta http-equiv="refresh" content="0;url=/" />;
+  }
 }

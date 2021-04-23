@@ -4,12 +4,9 @@ import styles from "../styles/Home.module.css";
 import { useSession } from "next-auth/client";
 import Link from "next/link";
 
-import { useRouter } from "next/router";
-
 export default function Home() {
-  const router = useRouter();
-
-  if (process.env.DATABASE_URL === "__NONE") router.push("/preview-github");
+  if (process.env.DATABASE_URL === "__NONE")
+    return <meta http-equiv="refresh" content="0;url=/preview-github" />;
 
   const [session] = useSession();
 
