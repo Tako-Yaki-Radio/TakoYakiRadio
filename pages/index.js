@@ -7,10 +7,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  const [session] = useSession();
+  const router = useRouter();
 
-  if (process.env.DATABASE_URL === "__NONE")
-    useRouter().push("/preview-github");
+  if (process.env.DATABASE_URL === "__NONE") router.push("/preview-github");
+
+  const [session] = useSession();
 
   if (!process.env.DATABASE_URL || !process.env.NEXTAUTH_URL) {
     console.error(
