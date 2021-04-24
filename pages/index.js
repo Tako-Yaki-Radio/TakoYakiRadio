@@ -5,9 +5,6 @@ import { useSession } from "next-auth/client";
 import Link from "next/link";
 
 export default function Home() {
-  if (process.env.DATABASE_URL === "__NONE")
-    return <meta http-equiv="refresh" content="0;url=/preview-github" />;
-
   const [session] = useSession();
 
   if (!process.env.DATABASE_URL || !process.env.NEXTAUTH_URL) {
@@ -27,7 +24,6 @@ export default function Home() {
 
           <main className={styles.main}>
             <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
-            {/*<p className={styles.description}>Open source music radio player</p>*/}
             <div className={styles.grid}>
               {!session && (
                 <>
