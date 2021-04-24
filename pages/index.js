@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function Home() {
   console.log("Preview mode: ", process.env.IS_PREVIEW_SETUP || "No");
-  console.log("Detecting mode");
 
   if (process.env.IS_PREVIEW_SETUP === "yes")
     <meta http-equiv="refresh" content="2;url=/preview-github" />;
@@ -17,7 +16,6 @@ export default function Home() {
     console.error(
       "Hi! looks like you're trying to use this code without ENVs. If you want to use this, you will need this ENVs:\n  - A mongoDB database URL\n  - A next-auth URL\n"
     );
-    process?.exit?.(1);
   }
 
   return (
