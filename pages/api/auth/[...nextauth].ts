@@ -4,8 +4,8 @@ import NextAuth from "next-auth";
 import makeRandom from "../../../src/makeRandom.ts";
 
 export default NextAuth({
-  providers: [],
+	providers: [],
 
-  database: process?.env?.DATABASE_URL,
-  secret: makeRandom?.(80),
+	database: process?.env?.DATABASE_URL,
+	secret: makeRandom?.(80),
 });
