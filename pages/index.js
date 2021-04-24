@@ -5,16 +5,12 @@ import { useSession } from "next-auth/client";
 import Link from "next/link";
 
 export default function Home() {
-  if (process.env.DATABASE_URL === "__NONE")
-    return <meta http-equiv="refresh" content="0;url=/preview-github" />;
-
   const [session] = useSession();
 
   if (!process.env.DATABASE_URL || !process.env.NEXTAUTH_URL) {
     console.error(
       "Hi! looks like you're trying to use this code without ENVs. If you want to use this, you will need this ENVs:\n  - A mongoDB database URL\n  - A next-auth URL\n"
     );
-    process?.exit?.(1);
   }
 
   return (
