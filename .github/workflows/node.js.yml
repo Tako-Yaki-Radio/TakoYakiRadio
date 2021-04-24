@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Lint, build, test
 
 on:
   push:
@@ -23,4 +23,4 @@ jobs:
       - run: npm ci || npm install && npm ci
       - run: npm run build --if-present
       - run: npm test --if-present
-      - run: npm lint --if-present
+      - run: npm run lint --if-present
