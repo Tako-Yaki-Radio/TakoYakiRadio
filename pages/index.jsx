@@ -2,51 +2,49 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import { useSession } from "next-auth/client";
-import Link from "next/link";
+//import { signOut, useSession } from "next-auth/client";
+//import Link from "next/link";
 
 import NavBar from "../components/NavBar";
 
 export default function Home() {
-	const [session] = useSession() || null;
+  //const [session] = useSession() || null;
 
-	return (
-		<>
-			<NavBar />
-			<div>
-				<div className={styles.container}>
-					<Head>
-						<title>TakoYaki Radio</title>
-						<link rel="icon" href="/favicon.ico" />
-					</Head>
+  return (
+    <div>
+      <Head>
+        <title>Folkip chat</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-					<main className={styles.main}>
-						<h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
-						<div className={styles.grid}>
-							{!session && (
-								<>
-									<Link href="/" className={styles.card}>
-										<div className={styles.card}>
-											<h3>Sign in &rarr;</h3>
-										</div>
-									</Link>
-									<Link href="/" className={styles.card}>
-										<div className={styles.card}>
-											<h3>Sign up &rarr;</h3>
-										</div>
-									</Link>
-								</>
-							)}
+      <NavBar />
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <div className={styles.intro}>
+            <h1 className={styles.title}>Welcome to TakoYaki Radio!</h1>
+          </div>
+          {/*<div className={styles.grid}>
+            {!session && (
+              <>
+                <div style={{ textAlign: "center" }}>
+                  <a href="/signIn">
+                    <h1 className={styles.card}>Sign in</h1>
+                  </a>
+                  <a href="/signUp">
+                    <h1 className={styles.card}>Sign up</h1>
+                  </a>
+                </div>
+              </>
+            )}
 
-							{session && (
-								<Link href="/" className={styles.card}>
-									<h3>Sign out &rarr;</h3>
-								</Link>
-							)}
-						</div>
-					</main>
-				</div>
-			</div>
-		</>
-	);
+            {session && (
+              <button onClick={() => signOut()}>
+                <h1 className={styles.card}>Sign out</h1>
+              </button>
+            )}
+          </div>*/}
+        </main>
+      </div>
+    </div>
+  );
 }
