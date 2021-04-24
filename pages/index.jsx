@@ -6,13 +6,7 @@ import { useSession } from "next-auth/client";
 import Link from "next/link";
 
 export default function Home() {
-  const [session] = useSession();
-
-  if (!process.env.DATABASE_URL || !process.env.NEXTAUTH_URL) {
-    console.error(
-      "Hi! looks like you're trying to use this code without ENVs. If you want to use this, you will need this ENVs:\n  - A mongoDB database URL\n  - A next-auth URL\n"
-    );
-  }
+  const [session] = useSession() || null;
 
   return (
     <>
