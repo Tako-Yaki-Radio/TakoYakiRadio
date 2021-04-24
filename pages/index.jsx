@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
